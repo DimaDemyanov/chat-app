@@ -7,12 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.Collections;
 
-@EntityScan("com.dm.common.model")
-@EnableJpaRepositories({"com.dm.common.repository"})
-@SpringBootApplication(scanBasePackages = {
-        "com.dm.common",
-        "com.dm.consumer"
-})
+@SpringBootApplication
 public class ConsumerApplication {
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(ConsumerApplication.class);
