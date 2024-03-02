@@ -35,6 +35,12 @@
                 <artifactId>spring-kafka</artifactId>
                 <version>3.0.12</version> <!-- Use the latest version -->
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
