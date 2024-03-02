@@ -11,3 +11,25 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092  # List of Kafka brokers
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        acks: all
+        retries: 3
+        max-in-flight-requests-per-connection: 1
+    consumer:
+      bootstrap-servers: localhost:9092  # List of Kafka brokers
+      group-id: message-consumer-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        max-poll-records: 10
+        enable-auto-commit: true
+        spring:
+          json:
+            trusted:
+              packages: 'com.dm.common.model,java.util,java.lang'

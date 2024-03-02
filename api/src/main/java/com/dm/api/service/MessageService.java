@@ -5,16 +5,21 @@ import com.dm.common.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import org.springframework.kafka.core.KafkaTemplate;
 
 @Service
 public class MessageService {
 
+    private static final String TOPIC = "messages";
+
     @Autowired
     private MessageRepository messageRepository;
 
-    public Message sendMessage(Message message) {
-        // Logic to send the message and push to the queue
-        return messageRepository.save(message);
+    @Autowired
+    private KafkaTemplate<String, Message> kafkaTemplate;
+
+    public void sendMessage(Message message) {
+        kafkaTemplate.send(TOPIC, message);
     }
 
     public List<Message> getReceivedMessages(Long userId) {

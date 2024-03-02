@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>api</module>
-        <module>message-consumer</module>
+        <module>consumer</module>
         <module>common</module>
     </modules>
 
@@ -29,6 +29,11 @@
                 <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>3.0.12</version> <!-- Use the latest version -->
             </dependency>
         </dependencies>
     </dependencyManagement>
