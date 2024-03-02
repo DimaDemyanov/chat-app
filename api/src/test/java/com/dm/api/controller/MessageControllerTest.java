@@ -4,7 +4,6 @@ import com.dm.api.service.MessageService;
 import com.dm.api.service.UserService;
 import com.dm.api.util.MessageTestConstants;
 import com.dm.common.model.Message;
-import com.dm.api.util.MessageTestConstants;
 import com.dm.common.utils.ObjectMapperUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

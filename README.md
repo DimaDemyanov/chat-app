@@ -63,7 +63,7 @@ This command will start Kafka and PostgreSQL containers in the background.
 To create a user, you can use the following curl command:
 
 ```sh
-curl -X POST http://localhost:8080/users -H 'Content-Type: application/json' -d '{"nickname": "john_doe"}'
+curl -X POST 'http://localhost:8080/users?nickname=john_doe'
 ```
 
 Replace `"john_doe"` with the desired nickname.
