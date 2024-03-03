@@ -21,8 +21,7 @@ public class MessageConsumerServiceTest {
     @Test
     public void testListen() {
         // Create a test message
-        Message testMessage = new Message();
-        // Set properties for the test message as needed
+        Message testMessage = new Message(1L, 2L, "Sample message from user 1 to user 2");
 
         // Directly call the listen method to simulate a message reception
         messageConsumerService.listen(testMessage);

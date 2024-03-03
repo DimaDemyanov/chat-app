@@ -25,36 +25,39 @@ This project is a chat application that allows users to send and receive message
 - Maven
 - Kafka and Zookeeper
 
+Here's the updated section on running the application, including the step to execute `mvn install` before starting the application:
+
 ### Running the Application
 
-1. **Start Kafka and Zookeeper**:
-   Ensure Kafka and Zookeeper are running. You can start them using the Kafka command-line tools or through a Docker container.
+1. **Build the Application**:
+   Before running the application, it's important to compile and package it. Navigate to the root directory of the project and execute the following command:
+   ```sh
+   mvn clean install
+   ```
+   This will clean any previous builds, compile the source code, run any tests, and package the application.
 
-2. **Start the API Module**:
+2. **Start Kafka and Zookeeper**:
+   To start Kafka and PostgreSQL, you need to have Docker and Docker Compose installed on your machine. Once installed, you can run the following command:
+   ```sh
+   docker-compose -f deployment/docker-compose.yml up -d
+   ```
+   This command will start Kafka and PostgreSQL containers in the background.
+
+3. **Start the API Module**:
    Navigate to the API module directory and run:
    ```sh
    mvn spring-boot:run
    ```
    This starts the Spring Boot application which hosts the REST endpoints.
 
-3. **Start the Consumer Module**:
+4. **Start the Consumer Module**:
    In a separate terminal, navigate to the consumer module directory and run:
    ```sh
    mvn spring-boot:run
    ```
    This starts the consumer service that listens for messages on the Kafka topic.
 
-Absolutely, here's the updated README section with the instructions for running Kafka and PostgreSQL using Docker Compose, along with curl examples for each endpoint.
-
-## Running Kafka and PostgreSQL
-
-To start Kafka and PostgreSQL, you need to have Docker and Docker Compose installed on your machine. Once installed, you can run the following command:
-
-```sh
-docker-compose -f deployment/docker-compose.yml up -d
-```
-
-This command will start Kafka and PostgreSQL containers in the background.
+By following these steps, you'll ensure that your application is built with the latest code changes and that all necessary services are up and running before you start the API and consumer modules.
 
 ## Interacting with the Application using curl
 
